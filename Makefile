@@ -1,14 +1,14 @@
-DATADOG_INSTALL_PATH=/opt/datadog-agent/
+PYTHON_PATH=/opt/datadog-agent/embedded/bin/
 
 .PHONY: default test setup
 
 default:
 	# do nothing
 
-setup:
-	${DATADOG_INSTALL_PATH}/embedded/bin/pip install mock
+setup-test:
+	${PYTHON_PATH}/pip install -r requirements-test.txt
 
 test:
-	PYTHONPATH=${DATADOG_INSTALL_PATH}/agent/:check.d/ \
-	    ${DATADOG_INSTALL_PATH}/embedded/bin/python -m unittest -v tests.test_sample_check
+	PYTHONPATH=check.d/:tests/dummy/ \
+	    ${PYTHON_PATH}/python -m unittest -v tests.test_sample_check
 

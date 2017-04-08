@@ -6,8 +6,7 @@ import sample_check
 class TestSampleCheck(unittest.TestCase):
     def test_check(self):
         mock_gauge = Mock()
-        sample_check.SampleCheck.__init__ = Mock(return_value = None)
-        sample_check.SampleCheck.gauge    = mock_gauge
+        sample_check.SampleCheck.gauge = mock_gauge
 
         sample = sample_check.SampleCheck()
         sample.check({})
