@@ -6,6 +6,6 @@ default:
 	# do nothing
 
 test:
-	PYTHONPATH=check.d/:tests/dummy/ \
+	PYTHONPATH=checks.d/:tests/dummy/ \
 	    ${PYTHON_PATH}python -m unittest -v tests.test_sample_check
 
